@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Description:
+
+This page is the location where it will show the user all of the theater within the zipcode that
+the user specified. The zipcode is being query and then return to the backing bean from the ejb
+then the jsf page render the view and get the result from the function call that it call to the 
+backing bean. This page only have information about the theater pertain to the zipcode the user entered.
+-->
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--CSS style sheet -->
+        <link rel="stylesheet" href="./ViewFormat.css" />
+        
+        <title>Location</title>
+        
+    </h:head>
+    <h:body class="mainBody">
+        <div class="intro">
+            <h2>Here are all the theater for the zip code you have entered.</h2>
+            <h3><u>Select a theater that you want to visit below.</u></h3>
+        </div>
+        <div class="formBody">
+            <h:form>
+                <h:dataTable value="#{movieTheaterCtrl.theaterList}" var="theater" style="align-content: center; align-self: center; text-align: center; margin: 0 auto;">
+                    <h:column>
+                      <f:facet name="header">
+                          <h:outputText value=""/>
+                      </f:facet>
+                        <h:graphicImage value="#{theater.theaterurl}" width="400px" height="200px"/><br/>
+                        <h:commandButton value="#{theater.theatername}" action="#{movieTheaterCtrl.getMovies()}" class="divSpace">
+                            <f:actionListener binding="#{movieTheaterCtrl.setTheaterName(theater.theatername)}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

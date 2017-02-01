@@ -1,0 +1,62 @@
+.divSpace{
+    margin-bottom: 40px;
+}
+.intro{
+    align-self: center;
+    text-align: center;
+    font-family: Josefin Slab;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.mainBody{
+    margin: 0 auto;
+    background-color:#ffff80;
+}
+.formBody{
+    align-self: center;
+    text-align: center;
+    font-family: Josefin Slab;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.shortForm{
+    align-self: center;
+    text-align: center;
+    font-family: Josefin Slab;
+    margin: 0 auto;
+    height: 400px;
+    border-bottom-style: solid;
+    border-bottom-color: #EB8D05;
+    border-bottom-width: 30px;
+}
+
+.movieDesc{
+    width: 400px;
+    font-family: Josefin Slab;
+    color: #3333ff;
+}
+
+#receiptBody{
+    background-color: white;
+    font-family: Josefin Slab;
+    font-size: 20px;
+    width: 600px;
+    height: 290px;
+    margin: 0 auto;
+    align-self: center;
+    align-content: center;
+    border: dashed black;
+    padding-top: 20px;
+}
+
+#welcomeBody{
+    border-top-style: solid;
+    border-color: #EB8D05;
+    border-width: 20px;
+    height: 600px;
+}
+
+#welcomepageBackground{
+    background-image: url('https://fanart.tv/fanart/movies/2454/moviebackground/the-chronicles-of-narnia-prince-caspian-52213a890816f.jpg');
+}

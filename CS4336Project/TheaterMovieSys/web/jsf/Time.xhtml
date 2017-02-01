@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Description:
+this page will let the user select what time they want to watch the movie.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--CSS style sheet -->
+        <link rel="stylesheet" href="./ViewFormat.css" />
+        
+        <title>Show Time</title>
+       
+    </h:head>
+    <h:body class="mainBody">
+        <div class="intro">
+            <h2><u>Select a movie from the movies below.</u></h2>   
+        </div>
+        <div class="shortForm">
+            <h:form>
+                <h:dataTable value="#{movieTheaterCtrl.timeList}" var="showtime" style="align-content: center; align-self: center; text-align: center; margin: 0 auto;">
+                    <h:column>
+                      <f:facet name="header">
+                          <h:outputText value=""/>
+                      </f:facet>
+                        <h3 style="margin-right: 20px;"><h:outputText value="Selected: #{movieTheaterCtrl.movieName}"/></h3>
+                        <h:commandButton class="divSpace" value="Watch #{showtime.mvtime}" action="Seats.xhtml">
+                            <f:actionListener binding="#{movieTheaterCtrl.setShowtime(showtime.mvtime)}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

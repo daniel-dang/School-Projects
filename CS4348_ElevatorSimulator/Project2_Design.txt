@@ -1,0 +1,61 @@
+Elevator Simulation Pseudocode
+
+//Semaphore
+Semaphore vacancy(7, true)		//set the number of vacancy to 7, size of the elevator max load
+Semaphore door(0, true)			//set the value of status of door open to 0, 0 = door close, no one can enter, 1 = door open
+Semaphore floor1(1, true)		//set the indication of whether the elevator at floor 1, initial value is at 1 because elevator started off with floor 1.
+Semaphore takeOff(0, true)		//semaphore signal for the elevator to take off, the elevator will take off once the wait signal reach 7, initially this semaphore set at 0, elevator cannot takee off.
+
+semaphore myFloor[]{			//this array of semaphore will be semaphore for every floor available on the elevator 
+								//initially, elements in the semaphore have 0 as value. **Refer to elevator constructor for this setting
+semaphore exited[];				//this semaphore array keep track of how many people have leave for the elevator to know how many people still left in the elevator
+								//initially, eleements in the semaphore have 0 as value. **Refer to elevator constructor for this setting
+
+ArrayList floorQueue;			//a list used for storing the floor
+
+
+class Person{
+	semWait(vacancy);			//wait to enter the elevator
+	enterElevator();			//get the customer to enter the elevator, print status "Person <ID>, target floor <#>"
+	getFloor();					//get client's target floor they want to go
+	semSignal(takeOff);			//signal that client inside elevator to take off
+	semWait(myFloor([floor#]);	//wait to get out at the target floor
+	exitElevator();				//get out the elevator, print status "Person <ID> out of elevator"
+	semSignal(exited[floor#]);	//signal the elevator that this person got out of elevator
+}
+
+class elevator{
+	while(clientCount == MAX_CLIENT)
+		semWait(floor1);				//wait for if the elevator is not at floor 1
+		semSignal(door);				//signal open the door
+		openDoor();						//open the door
+		semSignal(vacancy, MAX_LOAD)	//signal the opening spots available in the elevator max = 7
+		semWait(takeOff, MAX_LOAD)		//wait for the elevator to reach max capacity before take off
+		semWait(door);					//wait to close the door
+		closeDoor();					//close the door
+
+		//repeat untill all people leave the elevator, 1 time for each floor in the floorQueue
+		while(floorQueue.size() > 0){
+			transport();									//read in the next floor in the floorQueue, (the next index that have value bigger than 0).
+			semSignal(door);								//signal door open
+			openDoor();										//open the door
+			semSignal(myFloor(floorQueue[currentFloor]));		//grant the people permission to getout.
+															//this is done by release the amount of semaphore with the value 
+															//in the specify index in floorQueue array. 
+
+			semWait(exited(currentfloor(val));				//wait for the total amount of people get out of the floor to match, 
+															//how many get out = the number of permits wait. 
+										
+			remove();										//remove the people who left the elevator out of the 
+															//floorQueue, this is done by set that index to 0
+			semWait(door);									//signal close the door
+			closeDoor();									//close the door
+		}
+		
+		semSignal(floor1);								//signal to go back to floor 1, since all passenger have already left the elevator
+		backToFloor1();									//reset counting variables and current floor to its original starting point
+		
+	}this loop iterate until all people is served, this variable is set through MAX_CLIENT global variable. 
+}
+
+**End Pseudocode**

@@ -1,0 +1,9 @@
+Instruction on how to run the project. 
+
+Run this project like any other java project using javac and java commands.
+1. Run javac to compile the project. 			javac Elevator.java
+2. Run java to run the projeect. 			java Elevator
+3. Result will shown on the command window
+
+**Note: For some reason the project is not compile, try remove package name inside of the 
+java file and follow the instruction again. 

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Description:
+This page is the payment page that let the user enter the payment using 16 digit card and some other 
+field like name and expiration date. All the ticket is $10 dollars.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--CSS style sheet -->
+        <link rel="stylesheet" href="./ViewFormat.css" />
+        
+        <title>Payment</title>
+    </h:head>
+    <h:body class="mainBody">
+        <div>
+            <div class="intro">
+                <h4><u>Enter your credit card information below. All tickets is $10</u></h4>
+            </div>
+            
+            <div class="container-fluid">
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h4>Name On Card: </h4>
+                        </div>
+                        <div class="col-md-2">
+                            <h:inputText id="ownerName" value="#{movieTheaterCtrl.cardName}" required="true" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h4>Card Number:</h4>
+                        </div>
+                        <div class="col-md-2">
+                            <h:inputText id="creditCard" value="#{movieTheaterCtrl.cardNum}" required="true">
+                                <f:validator validatorId="CreditCardValidator" />
+                            </h:inputText>
+                                <h:message for="creditCard" style="color:red" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h4>Security Code: </h4>
+                        </div>
+                        <div class="col-md-2">
+                            <h:inputText id="securityCode" value="#{movieTheaterCtrl.cardSec}" required="true" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h4>Card Expiration Date:</h4>
+                        </div>
+                        <div class="col-md-2">
+                            <h:inputText id="expireDate" value="#{movieTheaterCtrl.cardExp}" required="true" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h:commandButton value="Print Your Receipt Online." action="#{movieTheaterCtrl.getReceipt()}" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="parkinglotproject">
+  <ClassDiagramComponents>
+    <Class name="Bus" package="parkinglotproject" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Car" package="parkinglotproject" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Level" package="parkinglotproject" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="size" type="int" visibility="private"/>
+        <Field name="spots" type="Spot[]" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSpotCap" returnType="int" visibility="public"/>
+        <Method name="getLevel" returnType="Spot[]" visibility="public"/>
+        <Method name="printFloor" returnType="void" visibility="public"/>
+        <Method name="isOwner" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="clearSpot" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="isSpotFill" returnType="boolean" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="isSpotFill" returnType="boolean" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="parkBus" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="spotNumber"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="parkBus" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="parkCar" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="spotNumber"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="parkCar" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="parkMotorcycle" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="spotNumber"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="parkMotorcycle" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="String" name="ownerName"/>
+          <Argument type="int" name="level"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Motorcycle" package="parkinglotproject" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ParkingLot" package="parkinglotproject" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="size" type="int" visibility="private" isFinal="true"/>
+        <Field name="levels" type="Level[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getLevelCap" returnType="int" visibility="public"/>
+        <Method name="printParkingLot" returnType="void" visibility="public"/>
+        <Method name="parkVehicle" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="parkVehicle" returnType="String" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="level"/>
+          <Argument type="int" name="spot"/>
+        </Method>
+        <Method name="getLevelAvai" returnType="int" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="getLevelAvai" returnType="int" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="getLevelAvai" returnType="int" visibility="public">
+          <Argument type="int" name="spot"/>
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="getLevelAvai" returnType="int" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+          <Argument type="int" name="level"/>
+          <Argument type="int" name="spot"/>
+        </Method>
+        <Method name="getVehicle" returnType="String" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="findVehicle" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ParkingTest" package="parkinglotproject" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ReadMe" package="parkinglotproject" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Spot" package="parkinglotproject" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="number" type="int" visibility="private"/>
+        <Field name="spotType" type="String" visibility="private"/>
+        <Field name="level" type="int" visibility="private"/>
+        <Field name="vehicle" type="Vehicle" visibility="private"/>
+        <Field name="owner" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setSpotNumber" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="getSpotNumber" returnType="int" visibility="public"/>
+        <Method name="setSpotType" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+        <Method name="getSpotType" returnType="String" visibility="public"/>
+        <Method name="setSpotLevel" returnType="void" visibility="public">
+          <Argument type="int" name="level"/>
+        </Method>
+        <Method name="getSpotLevel" returnType="int" visibility="public"/>
+        <Method name="setSpotVehicle" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="getSpotVehicle" returnType="Vehicle" visibility="public"/>
+        <Method name="getOwnerName" returnType="String" visibility="public"/>
+        <Method name="setOwnerName" returnType="void" visibility="public">
+          <Argument type="String" name="owner"/>
+        </Method>
+        <Method name="clearSpot" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Vehicle" package="parkinglotproject" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="parkinglotproject.Car" target="parkinglotproject.Vehicle"/>
+    <UseRelation source="parkinglotproject.Level" target="parkinglotproject.Spot" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="parkinglotproject.Motorcycle" target="parkinglotproject.Vehicle"/>
+    <UseRelation source="parkinglotproject.ParkingLot" target="parkinglotproject.Vehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vehicle" source="parkinglotproject.Spot" target="parkinglotproject.Vehicle" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="parkinglotproject.Spot" target="parkinglotproject.Vehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="parkinglotproject.Level" target="parkinglotproject.Vehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="parkinglotproject.Bus" target="parkinglotproject.Vehicle"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

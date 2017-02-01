@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Description:
+this is the welcome page where the user will put in a zipcode to a theater they want and then select
+that theater to select movie to watch.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--CSS style sheet -->
+        <link rel="stylesheet" href="./ViewFormat.css" />
+        <title>Welcome</title>
+    </h:head>
+    <h:body id="welcomepageBackground">
+        <div>
+            <div class="intro">
+                <h1>Welcome to our movie database</h1><br/>
+                <h4><u>Enter a zip code to find a theater.</u></h4>
+            </div>
+            
+            <div class="container-fluid">
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-4">
+                            <h4>Zip code: </h4>
+                        </div>
+                        <div class="col-md-2">
+                            <h:inputText id="zipcode" value="#{movieTheaterCtrl.input}" required="true">
+                                <f:validator validatorId="ZipcodeValidator" />
+                            </h:inputText>
+                            <h:message for="zipcode" style="color:red" />
+                        </div>
+                        <div class="col-md-1">
+                            <h:commandButton value="Next" action="#{movieTheaterCtrl.getTheaters()}" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
+

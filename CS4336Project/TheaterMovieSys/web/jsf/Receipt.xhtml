@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Description:
+This page contained the information of all the things that the user has enter from the beginning until now
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--CSS style sheet -->
+        <link rel="stylesheet" href="./ViewFormat.css" />
+        
+        <title>Receipt</title>
+
+    </h:head>
+    <h:body class="mainBody">
+        <div class="intro">
+            <h1>Receipt</h1>
+            <h4><i>Please show this ticket as a proof of purchase to the clerk to claim an actually ticket.</i></h4>
+        </div>
+        <div id="receiptBody">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">Theater: <h:outputText value="#{movieTheaterCtrl.theaterName}" /> </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">Movie: <h:outputText value="#{movieTheaterCtrl.movieName}" /> </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">Start Time: <h:outputText value="#{movieTheaterCtrl.showtime}" /> </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">Seat Number: <h:outputText value="#{movieTheaterCtrl.seat}" /> </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2"><u><strong>Credit Card Information.</strong></u></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        Name On Card: <h:outputText value="#{movieTheaterCtrl.cardName}" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        Credit Card Number: ************<h:outputText value="#{movieTheaterCtrl.shortCreditNum}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
